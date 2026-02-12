@@ -4,8 +4,8 @@ OCSFolderInfoURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_folder_info"
 OCSSessionsFolderURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_sessions_folder"
 OCSAdminURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_admin"
 
-# Memcached para caché y sesiones
-SOGoMemcachedHost: "memcached:11211"
+# Memcached desactivado temporalmente para debug
+#SOGoMemcachedHost: "memcached:11211"
 
 # Fuente de usuarios (autenticación LDAP - Synology)
 SOGoUserSources:
@@ -27,6 +27,12 @@ SOGoUserSources:
 SOGoPageTitle: "SOGo Groupware"
 SOGoLanguage: Spanish
 SOGoTimeZone: Europe/Madrid
+
+# URL base (necesario para cookies)
+WOPort: 20000
+SOGoDraftsFolderName: Drafts
+SOGoSentFolderName: Sent
+SOGoTrashFolderName: Trash
 
 # Funcionalidades habilitadas
 SOGoPasswordChangeEnabled: true
