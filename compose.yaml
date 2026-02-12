@@ -35,11 +35,11 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      # LDAP - Ajusta estos valores para tu Synology
-      LDAP_HOST: nas.kalamar.lam
-      LDAP_BASE_DN: dc=kalamar,dc=lan
-      LDAP_BIND_DN: uid=root,cn=users,dc=kalamar,dc=lan
-      LDAP_BIND_PASSWORD: CAMBIAR_PASSWORD
+      # LDAP - Configura estos valores en Komodo
+      LDAP_HOST:
+      LDAP_BASE_DN:
+      LDAP_BIND_DN:
+      LDAP_BIND_PASSWORD:
     volumes:
       - ./sogo-config:/etc/sogo/sogo.conf.d.templates:ro
       - ./sogo-config/entrypoint-wrapper.sh:/entrypoint-wrapper.sh:ro
