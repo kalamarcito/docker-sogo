@@ -7,14 +7,22 @@ OCSAdminURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_admin"
 # Memcached para caché y sesiones
 SOGoMemcachedHost: "memcached:11211"
 
-# Fuente de usuarios (autenticación SQL)
+# Fuente de usuarios (autenticación LDAP - Synology)
 SOGoUserSources:
-  - type: sql
+  - type: ldap
     id: directory
-    viewURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_view"
+    hostname: "ldap://${LDAP_HOST}:389"
+    baseDN: "${LDAP_BASE_DN}"
+    bindDN: "${LDAP_BIND_DN}"
+    bindPassword: "${LDAP_BIND_PASSWORD}"
+    filter: "(objectClass=posixAccount)"
+    CNFieldName: cn
+    IDFieldName: uid
+    UIDFieldName: uid
     canAuthenticate: true
     isAddressBook: true
-    userPasswordAlgorithm: md5
+    MailFieldNames:
+      - mail
 
 # Configuración general
 SOGoPageTitle: "SOGo Groupware"
