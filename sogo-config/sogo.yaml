@@ -1,0 +1,38 @@
+# Configuración de base de datos
+SOGoProfileURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_user_profile"
+OCSFolderInfoURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_folder_info"
+OCSSessionsFolderURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_sessions_folder"
+OCSAdminURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_admin"
+
+# Memcached para caché y sesiones
+SOGoMemcachedHost: "memcached:11211"
+
+# Fuente de usuarios (autenticación SQL)
+SOGoUserSources:
+  - type: sql
+    id: directory
+    viewURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_view"
+    canAuthenticate: true
+    isAddressBook: true
+    userPasswordAlgorithm: md5
+
+# Configuración general
+SOGoPageTitle: "SOGo Groupware"
+SOGoLanguage: Spanish
+SOGoTimeZone: Europe/Madrid
+
+# Funcionalidades habilitadas
+SOGoPasswordChangeEnabled: true
+SOGoVacationEnabled: true
+SOGoForwardEnabled: true
+SOGoSieveScriptsEnabled: false
+SOGoMailAuxiliaryUserAccountsEnabled: false
+
+# Seguridad
+SOGoTrustProxyAuthentication: false
+SOGoXSRFValidationEnabled: true
+
+# Debug (desactivar en producción)
+SOGoDebugRequests: false
+SoDebugBaseURL: false
+PGDebugEnabled: false

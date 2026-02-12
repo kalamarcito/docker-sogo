@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: sogo-postgres
+    environment:
+      POSTGRES_USER: sogo
+      POSTGRES_PASSWORD: sogo
+      POSTGRES_DB: sogo
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sogo -d sogo"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  memcached:
+    image: memcached:1.6-alpine
+    container_name: sogo-memcached
+    command: memcached -m 64
+    restart: unless-stopped
+
+  sogo:
+    image: sonroyaalmerol/docker-sogo:latest
+    # O para usar tu imagen local:
+    # build: .
+    container_name: sogo
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      PUID: 1000
+      PGID: 1000
+    volumes:
+      - ./sogo-config:/etc/sogo/sogo.conf.d:ro
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
