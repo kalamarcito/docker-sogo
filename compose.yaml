@@ -37,19 +37,13 @@ services:
       PGID: 1000
       # LDAP - Ajusta estos valores para tu Synology
       LDAP_HOST: nas.kalamar.lam
-      LDAP_BASE_DN: cn=users,dc=nas,dc=synology,dc=com
-      LDAP_BIND_DN: uid=root,cn=users,dc=nas,dc=synology,dc=com
+      LDAP_BASE_DN: dc=kalamar,dc=lan
+      LDAP_BIND_DN: uid=root,cn=users,dc=kalamar,dc=lan
       LDAP_BIND_PASSWORD: CAMBIAR_PASSWORD
     volumes:
       - ./sogo-config:/etc/sogo/sogo.conf.d.templates:ro
-    command: >
-      bash -c '
-        mkdir -p /etc/sogo/sogo.conf.d &&
-        for f in /etc/sogo/sogo.conf.d.templates/*.yaml; do
-          envsubst < "$$f" > "/etc/sogo/sogo.conf.d/$$(basename $$f)"
-        done &&
-        /opt/entrypoint.sh
-      '
+      - ./sogo-config/entrypoint-wrapper.sh:/entrypoint-wrapper.sh:ro
+    entrypoint: ["/bin/bash", "/entrypoint-wrapper.sh"]
     restart: unless-stopped
 
 volumes:
