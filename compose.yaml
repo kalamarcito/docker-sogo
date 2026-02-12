@@ -45,6 +45,13 @@ services:
       - ./entrypoint-wrapper.sh:/entrypoint-wrapper.sh:ro
     entrypoint: ["/bin/bash", "/entrypoint-wrapper.sh"]
     restart: unless-stopped
+    # Límites para evitar bloquear el NAS
+    mem_limit: 512m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 volumes:
   postgres_data:
