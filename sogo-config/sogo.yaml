@@ -28,11 +28,9 @@ SOGoPageTitle: "SOGo Groupware"
 SOGoLanguage: Spanish
 SOGoTimeZone: Europe/Madrid
 
-# URL base (necesario para cookies)
-WOPort: 20000
-SOGoDraftsFolderName: Drafts
-SOGoSentFolderName: Sent
-SOGoTrashFolderName: Trash
+# Workers y rendimiento
+WOWorkersCount: 3
+SxVMemLimit: 384
 
 # Funcionalidades habilitadas
 SOGoPasswordChangeEnabled: true
