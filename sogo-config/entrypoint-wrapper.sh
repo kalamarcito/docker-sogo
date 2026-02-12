@@ -17,6 +17,9 @@ for f in /etc/sogo/sogo.conf.d.templates/*.yaml; do
     fi
 done
 
-echo "Templates processed. Starting SOGo..."
+echo "Templates processed. Resulting config:"
+cat /etc/sogo/sogo.conf.d/sogo.yaml
+echo "--- END CONFIG ---"
+echo "Starting SOGo..."
 
 exec /opt/entrypoint.sh
