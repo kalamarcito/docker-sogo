@@ -4,8 +4,8 @@ OCSFolderInfoURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_folder_info"
 OCSSessionsFolderURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_sessions_folder"
 OCSAdminURL: "postgresql://sogo:sogo@postgres:5432/sogo/sogo_admin"
 
-# Memcached desactivado temporalmente para debug
-#SOGoMemcachedHost: "memcached:11211"
+# Memcached - REQUERIDO para gestión de sesiones
+SOGoMemcachedHost: "memcached:11211"
 
 # Fuente de usuarios (autenticación LDAP - Synology)
 SOGoUserSources:
