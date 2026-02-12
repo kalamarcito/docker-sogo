@@ -42,7 +42,7 @@ services:
       LDAP_BIND_PASSWORD:
     volumes:
       - ./sogo-config:/etc/sogo/sogo.conf.d.templates:ro
-      - ./sogo-config/entrypoint-wrapper.sh:/entrypoint-wrapper.sh:ro
+      - ./entrypoint-wrapper.sh:/entrypoint-wrapper.sh:ro
     entrypoint: ["/bin/bash", "/entrypoint-wrapper.sh"]
     restart: unless-stopped
 
