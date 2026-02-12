@@ -45,6 +45,7 @@ services:
     volumes:
       - ./sogo-config:/etc/sogo/sogo.conf.d.templates:ro
       - ./entrypoint-wrapper.sh:/entrypoint-wrapper.sh:ro
+      - ./apache/SOGo.conf:/etc/apache2/conf-available/SOGo.conf:ro
     entrypoint: ["/bin/bash", "/entrypoint-wrapper.sh"]
     restart: unless-stopped
     # Límites para evitar bloquear el NAS
