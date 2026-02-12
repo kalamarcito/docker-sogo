@@ -1,7 +1,4 @@
 #!/bin/bash
-# Procesa los templates YAML sustituyendo variables de entorno
-# y luego ejecuta el entrypoint original de SOGo
-
 set -e
 
 echo "Processing YAML templates with environment variables..."
