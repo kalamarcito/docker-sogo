@@ -15,17 +15,12 @@ SOGoUserSources:
     baseDN: "cn=users,${LDAP_BASE_DN}"
     bindDN: "${LDAP_BIND_DN}"
     bindPassword: "${LDAP_BIND_PASSWORD}"
-    filter: "(objectClass=*)"
-    scope: SUB
     CNFieldName: cn
     IDFieldName: uid
     UIDFieldName: uid
-    bindFields:
-      - uid
+    bindFields: [uid]
     canAuthenticate: true
     isAddressBook: true
-    MailFieldNames:
-      - mail
     displayName: "Directorio LDAP"
 
 # Configuración general
