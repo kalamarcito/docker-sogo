@@ -37,7 +37,7 @@ SOGoMailAuxiliaryUserAccountsEnabled: false
 
 # Seguridad
 SOGoTrustProxyAuthentication: false
-SOGoXSRFValidationEnabled: true
+SOGoXSRFValidationEnabled: false
 
 # Debug (desactivar en producción)
 SOGoDebugRequests: true
